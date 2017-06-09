@@ -11,7 +11,7 @@
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-            <div class="navbar-header">
+            <div class="navbar-header" id="mn">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -30,8 +30,19 @@
                 }
                 else if (Session["Persoon"] != null)
                 {
+                    if ((int)Session["Admin"] == 1)
+                    {
+                        @Html.ActionLink("AdminPanel", "Loguit", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    }
+                    if ((int)Session["Organisator"] == 1)
+                    {
+                        @Html.ActionLink("Organisator Panel", "Loguit", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    }
                     @Html.ActionLink("Loguit", "Loguit", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                   
                 }
+                
+                
 
 
 

@@ -36,7 +36,10 @@ namespace projetsv3.Controllers
            
             if (ps.CheckLogin(login,password))
             {
-                Session["persoon"]=ps.GetPersoon(login);
+                persoon p = ps.GetPersoon(login);
+                Session["persoon"] = p;
+                Session["Admin"] = p.Admin;
+                Session["Organisator"] = p.Organisator;
                 return Redirect("Welkom");
             }
             return View();

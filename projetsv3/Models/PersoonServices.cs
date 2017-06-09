@@ -29,7 +29,6 @@ namespace projetsv3.Models
             projetsv3.persoon p;
             using (var db = new INFO_c1035462Entities())
             {
-
                p = db.Proj_pers.Where(x => x.login == login).First();
             }
             return p;
