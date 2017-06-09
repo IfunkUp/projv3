@@ -11,10 +11,6 @@ namespace projetsv3.Controllers
     public class LanguageController : Controller
     {
         // GET: Language
-        public ActionResult Index()
-        {
-            return View();
-        }
         public ActionResult Change(String LanguageAbbrevation)
         {
             if (LanguageAbbrevation != null)
@@ -26,7 +22,7 @@ namespace projetsv3.Controllers
             HttpCookie cookie = new HttpCookie("Language");
             cookie.Value = LanguageAbbrevation;
             Response.Cookies.Add(cookie);
-            return View("Index");
+            return Redirect("~/Home/Welkom");
         }
     }
 }

@@ -118,51 +118,48 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Adress" xml:space="preserve">
-    <value>Adresse</value>
+    <value>Adres</value>
   </data>
   <data name="City" xml:space="preserve">
-    <value>commune</value>
+    <value>gemeente</value>
   </data>
   <data name="Date" xml:space="preserve">
-    <value>date</value>
+    <value>Datum</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>prénom</value>
+    <value>voornaam</value>
   </data>
   <data name="Remark" xml:space="preserve">
-    <value>remarque</value>
+    <value>opmerking</value>
   </data>
   <data name="Question" xml:space="preserve">
-    <value>demande</value>
+    <value>vraag</value>
   </data>
   <data name="Surname" xml:space="preserve">
-    <value>nom de famille</value>
+    <value>achternaam</value>
   </data>
   <data name="Type" xml:space="preserve">
     <value>type</value>
   </data>
   <data name="Content" xml:space="preserve">
-    <value>Contenu</value>
+    <value>Inhoud</value>
   </data>
   <data name="Adjust" xml:space="preserve">
-    <value>régler</value>
+    <value>aanpassen</value>
   </data>
   <data name="BackToList" xml:space="preserve">
-    <value>Retour à la liste</value>
+    <value>terug naar overzicht</value>
   </data>
   <data name="Contact" xml:space="preserve">
-    <value>Poser une question</value>
+    <value>Stel een vraag</value>
   </data>
   <data name="Create" xml:space="preserve">
-    <value>nouveau</value>
+    <value>maak een nieuwe</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>supprimer</value>
+    <value>verwijder</value>
   </data>
   <data name="Language" xml:space="preserve">
-    <value>Langue</value>
-  </data>
-  <data name="Welcome" xml:space="preserve">
-    <value>Bienvenu</value>
+    <value>Taal</value>
   </data>
 </root>

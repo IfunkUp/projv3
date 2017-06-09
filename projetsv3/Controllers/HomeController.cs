@@ -22,6 +22,13 @@ namespace projetsv3.Controllers
         {
             return View();
         }
+        public ActionResult Welkom()
+        {
+            return View();
+        }
+
+
+
 
         [HttpPost]
         public ActionResult Login(string login, string password)
@@ -30,7 +37,7 @@ namespace projetsv3.Controllers
             if (ps.CheckLogin(login,password))
             {
                 Session["persoon"]=ps.GetPersoon(login);
-                View("Index");
+                return Redirect("Welkom");
             }
             return View();
         }

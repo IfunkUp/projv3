@@ -17,10 +17,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Application name", "Welkom", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 @Html.ActionLink(Teksten.Contact, "Create", "vraag", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink(Teksten.Language,"Index","Language")
 
+                @Html.ActionLink("Francais", "Change", "Language", new { LanguageAbbrevation = "fr" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Nederlands", "Change", "Language", new { LanguageAbbrevation = "nl" }, new { @class = "navbar-brand" })
+                <div class="pull-left">
+                    @Html.ActionLink("Login", "Login", "Home", new { LanguageAbbrevation = "nl" }, new { @class = "navbar-brand" })
+                </div>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -33,7 +37,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - De karrige Karters</p>
         </footer>
     </div>
 

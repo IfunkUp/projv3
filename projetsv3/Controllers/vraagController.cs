@@ -51,8 +51,9 @@ namespace projetsv3.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,naam,voornaam,adres,gemeente,type,content,date")] vraag vraag)
+        public ActionResult Create([Bind(Include = "Id,naam,voornaam,adres,gemeente,type,content")] vraag vraag)
         {
+            vraag.date = DateTime.Now.Date;
             if (ModelState.IsValid)
             {
                 db.Proj_Vragen.Add(vraag);
@@ -85,6 +86,7 @@ namespace projetsv3.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,naam,voornaam,adres,gemeente,type,content,date")] vraag vraag)
         {
+         
             if (ModelState.IsValid)
             {
                 db.Entry(vraag).State = EntityState.Modified;

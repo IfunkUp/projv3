@@ -161,6 +161,7 @@
     <Compile Include="Models\Persoon.cs" />
     <Compile Include="Models\PersoonProperties.cs" />
     <Compile Include="Models\PersoonServices.cs" />
+    <Compile Include="Models\vraag.cs" />
     <Compile Include="persoon.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -203,6 +204,7 @@
     <Content Include="Views\vraag\Edit.cshtml" />
     <Content Include="Views\vraag\Index.cshtml" />
     <Content Include="Views\Language\Index.cshtml" />
+    <Content Include="Views\Home\Welkom.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
