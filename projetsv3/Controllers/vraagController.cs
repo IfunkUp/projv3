@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using projetsv3;
+using projetsv3.TaalResources;
 
 namespace projetsv3.Controllers
 {
@@ -39,8 +40,8 @@ namespace projetsv3.Controllers
         public ActionResult Create()
         {
             List<SelectListItem> items = new List<SelectListItem>();
-            items.Add(new SelectListItem { Text = "Vraag", Value = "0" });
-            items.Add(new SelectListItem { Text = "Opmerking", Value = "1" });
+            items.Add(new SelectListItem { Text = Teksten.Question, Value = "0" });
+            items.Add(new SelectListItem { Text = Teksten.Remark, Value = "1" });
             ViewBag.type = items;
             return View();
         }

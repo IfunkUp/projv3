@@ -21,6 +21,9 @@
             @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
         </div>
     </div>
+    <ul>
+        <li>@DateTime.Now.ToString()</li>
+    </ul>
     <input type="submit" value="Login" class="btn btn-default" />
 </form>
 
