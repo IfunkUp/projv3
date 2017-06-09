@@ -8,9 +8,9 @@
         <EntityTypeShape EntityType="INFO_c1035462Model.evenement" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="INFO_c1035462Model.gemeente" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="INFO_c1035462Model.persoon" Width="1.5" PointX="8" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="INFO_c1035462Model.Vraag" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="INFO_c1035462Model.FK_Evenement_Loc_Gemeente_code" ManuallyRouted="false" />
         <AssociationConnector Association="INFO_c1035462Model.FK_Proj_pers_ToTable" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="INFO_c1035462Model.vraag" Width="1.5" PointX="5.75" PointY="0.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

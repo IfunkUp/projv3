@@ -10,24 +10,24 @@ using projetsv3;
 
 namespace projetsv3.Controllers
 {
-    public class VraagsController : Controller
+    public class vraagController : Controller
     {
         private INFO_c1035462Entities db = new INFO_c1035462Entities();
 
-        // GET: Vraags
+        // GET: vraag
         public ActionResult Index()
         {
             return View(db.Proj_Vragen.ToList());
         }
 
-        // GET: Vraags/Details/5
+        // GET: vraag/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vraag vraag = db.Proj_Vragen.Find(id);
+            vraag vraag = db.Proj_Vragen.Find(id);
             if (vraag == null)
             {
                 return HttpNotFound();
@@ -35,18 +35,22 @@ namespace projetsv3.Controllers
             return View(vraag);
         }
 
-        // GET: Vraags/Create
+        // GET: vraag/Create
         public ActionResult Create()
         {
+            List<SelectListItem> items = new List<SelectListItem>();
+            items.Add(new SelectListItem { Text = "Vraag", Value = "0" });
+            items.Add(new SelectListItem { Text = "Opmerking", Value = "1" });
+            ViewBag.type = items;
             return View();
         }
 
-        // POST: Vraags/Create
+        // POST: vraag/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,naam,voornaam,adres,gemeente,type,content,date")] Vraag vraag)
+        public ActionResult Create([Bind(Include = "Id,naam,voornaam,adres,gemeente,type,content,date")] vraag vraag)
         {
             if (ModelState.IsValid)
             {
@@ -58,14 +62,14 @@ namespace projetsv3.Controllers
             return View(vraag);
         }
 
-        // GET: Vraags/Edit/5
+        // GET: vraag/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vraag vraag = db.Proj_Vragen.Find(id);
+            vraag vraag = db.Proj_Vragen.Find(id);
             if (vraag == null)
             {
                 return HttpNotFound();
@@ -73,12 +77,12 @@ namespace projetsv3.Controllers
             return View(vraag);
         }
 
-        // POST: Vraags/Edit/5
+        // POST: vraag/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,naam,voornaam,adres,gemeente,type,content,date")] Vraag vraag)
+        public ActionResult Edit([Bind(Include = "Id,naam,voornaam,adres,gemeente,type,content,date")] vraag vraag)
         {
             if (ModelState.IsValid)
             {
@@ -89,14 +93,14 @@ namespace projetsv3.Controllers
             return View(vraag);
         }
 
-        // GET: Vraags/Delete/5
+        // GET: vraag/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vraag vraag = db.Proj_Vragen.Find(id);
+            vraag vraag = db.Proj_Vragen.Find(id);
             if (vraag == null)
             {
                 return HttpNotFound();
@@ -104,12 +108,12 @@ namespace projetsv3.Controllers
             return View(vraag);
         }
 
-        // POST: Vraags/Delete/5
+        // POST: vraag/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Vraag vraag = db.Proj_Vragen.Find(id);
+            vraag vraag = db.Proj_Vragen.Find(id);
             db.Proj_Vragen.Remove(vraag);
             db.SaveChanges();
             return RedirectToAction("Index");

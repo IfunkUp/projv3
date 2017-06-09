@@ -11,6 +11,7 @@ namespace projetsv3.Controllers
 
     public class HomeController : Controller
     {
+        
         PersoonServices ps = new PersoonServices();
         // GET: Home
         public ActionResult Index()
@@ -23,16 +24,15 @@ namespace projetsv3.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(string login, string paswoord)
+        public ActionResult Login(string login, string password)
         {
-            if (ps.CheckLogin(login,paswoord))
+           
+            if (ps.CheckLogin(login,password))
             {
                 Session["persoon"]=ps.GetPersoon(login);
+                View("Index");
             }
-
-
             return View();
-
         }
     }
 }

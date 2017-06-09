@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="INFO_c1035462Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="INFO_c1035462Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Proj_evenementen">
           <Key>
             <PropertyRef Name="id" />
@@ -50,7 +50,7 @@
           <Property Name="gemeente" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="type" Type="int" Nullable="false" />
           <Property Name="content" Type="nvarchar(max)" />
-          <Property Name="date" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="date" Type="date" />
         </EntityType>
         <Association Name="FK_Evenement_Loc_Gemeente_code">
           <End Role="Proj_gemeenten" Type="Self.Proj_gemeenten" Multiplicity="1" />
@@ -90,8 +90,7 @@
             <End Role="Proj_pers" EntitySet="Proj_pers" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="INFO_c1035462Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -133,19 +132,6 @@
           <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="gemeente" Relationship="Self.FK_Proj_pers_ToTable" FromRole="Proj_pers" ToRole="Proj_gemeenten" />
         </EntityType>
-        <EntityType Name="Vraag">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="naam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="voornaam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="adres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="gemeente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="type" Type="Int32" Nullable="false" />
-          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="date" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
-        </EntityType>
         <Association Name="FK_Evenement_Loc_Gemeente_code">
           <End Role="Proj_gemeenten" Type="INFO_c1035462Model.gemeente" Multiplicity="1" />
           <End Role="Proj_evenementen" Type="INFO_c1035462Model.evenement" Multiplicity="*" />
@@ -174,7 +160,6 @@
           <EntitySet Name="Proj_evenementen" EntityType="INFO_c1035462Model.evenement" />
           <EntitySet Name="Proj_gemeenten" EntityType="INFO_c1035462Model.gemeente" />
           <EntitySet Name="Proj_pers" EntityType="INFO_c1035462Model.persoon" />
-          <EntitySet Name="Proj_Vragen" EntityType="INFO_c1035462Model.Vraag" />
           <AssociationSet Name="FK_Evenement_Loc_Gemeente_code" Association="Self.FK_Evenement_Loc_Gemeente_code">
             <End Role="Proj_gemeenten" EntitySet="Proj_gemeenten" />
             <End Role="Proj_evenementen" EntitySet="Proj_evenementen" />
@@ -183,7 +168,21 @@
             <End Role="Proj_gemeenten" EntitySet="Proj_gemeenten" />
             <End Role="Proj_pers" EntitySet="Proj_pers" />
           </AssociationSet>
+          <EntitySet Name="Proj_Vragen" EntityType="INFO_c1035462Model.vraag" />
         </EntityContainer>
+        <EntityType Name="vraag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naam" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="voornaam" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="adres" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gemeente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="type" Type="Int32" Nullable="false" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -228,16 +227,16 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Proj_Vragen">
-            <EntityTypeMapping TypeName="INFO_c1035462Model.Vraag">
+            <EntityTypeMapping TypeName="INFO_c1035462Model.vraag">
               <MappingFragment StoreEntitySet="Proj_Vragen">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="naam" ColumnName="naam" />
-                <ScalarProperty Name="voornaam" ColumnName="voornaam" />
-                <ScalarProperty Name="adres" ColumnName="adres" />
-                <ScalarProperty Name="gemeente" ColumnName="gemeente" />
-                <ScalarProperty Name="type" ColumnName="type" />
-                <ScalarProperty Name="content" ColumnName="content" />
                 <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="gemeente" ColumnName="gemeente" />
+                <ScalarProperty Name="adres" ColumnName="adres" />
+                <ScalarProperty Name="voornaam" ColumnName="voornaam" />
+                <ScalarProperty Name="naam" ColumnName="naam" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

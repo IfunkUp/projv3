@@ -12,7 +12,7 @@ namespace projetsv3
     using System;
     using System.Collections.Generic;
     
-    public partial class Vraag
+    public partial class vraag
     {
         public int Id { get; set; }
         public string naam { get; set; }
@@ -21,6 +21,6 @@ namespace projetsv3
         public string gemeente { get; set; }
         public int type { get; set; }
         public string content { get; set; }
-        public byte[] date { get; set; }
+        public Nullable<System.DateTime> date { get; set; }
     }
 }

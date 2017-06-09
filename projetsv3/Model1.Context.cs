@@ -28,6 +28,6 @@ namespace projetsv3
         public virtual DbSet<evenement> Proj_evenementen { get; set; }
         public virtual DbSet<gemeente> Proj_gemeenten { get; set; }
         public virtual DbSet<persoon> Proj_pers { get; set; }
-        public virtual DbSet<Vraag> Proj_Vragen { get; set; }
+        public virtual DbSet<vraag> Proj_Vragen { get; set; }
     }
 }
