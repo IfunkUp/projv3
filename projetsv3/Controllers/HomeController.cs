@@ -41,5 +41,10 @@ namespace projetsv3.Controllers
             }
             return View();
         }
+        public ActionResult Loguit()
+        {
+            Session["Persoon"] = null;
+            return Redirect("Welkom");
+        }
     }
 }

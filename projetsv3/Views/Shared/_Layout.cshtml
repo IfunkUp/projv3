@@ -22,9 +22,19 @@
 
                 @Html.ActionLink("Francais", "Change", "Language", new { LanguageAbbrevation = "fr" }, new { @class = "navbar-brand" })
                 @Html.ActionLink("Nederlands", "Change", "Language", new { LanguageAbbrevation = "nl" }, new { @class = "navbar-brand" })
-                <div class="pull-left">
-                    @Html.ActionLink("Login", "Login", "Home", new { LanguageAbbrevation = "nl" }, new { @class = "navbar-brand" })
-                </div>
+               
+                @if (Session.IsNewSession || Session["Persoon"] == null)
+                {
+                    @Html.ActionLink("Login", "Login", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Register", "Create", "Persoon", new { area = "" }, new { @class = "navbar-brand" })
+                }
+                else if (Session["Persoon"] != null)
+                {
+                    @Html.ActionLink("Loguit", "Loguit", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                }
+
+
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
